@@ -116,11 +116,16 @@ public class WebController {
 	 *
 	 * @return
 	 */
-	@RequestMapping(value = "/cs580/users/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/cs580/{userId}/major", method = RequestMethod.GET)
+	String showMajor(@PathVariable("userId") String userId) {
+		User user = userManager.getUser(userId);
+		return user.getMajor();
+	}
+	
+	@RequestMapping(value = "/cs580/user/list", method = RequestMethod.GET)
 	List<User> listAllUsers() {
 		return userManager.listAllUsers();
 	}
-
 	/*********** Web UI Test Utility **********/
 	/**
 	 * This method provide a simple web UI for you to test the different
