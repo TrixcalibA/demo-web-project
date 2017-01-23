@@ -112,7 +112,7 @@ public class WebController {
 	}
 
 	/**
-	 * This API lists all the users in the current database.
+	 * This API list specific user ID's major.
 	 *
 	 * @return
 	 */
