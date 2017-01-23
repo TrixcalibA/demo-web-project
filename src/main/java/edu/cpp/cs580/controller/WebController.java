@@ -122,6 +122,18 @@ public class WebController {
 		return user.getMajor();
 	}
 	
+	/**
+	 * This API returns when a user was created
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/cs580/{userId}/creation", method = RequestMethod.GET)
+	String showCreation(@PathVariable("userId") String userId) {
+		User user = userManager.getUser(userId);
+		return user.getCreationTime();
+	}
+	
+	
 	@RequestMapping(value = "/cs580/user/list", method = RequestMethod.GET)
 	List<User> listAllUsers() {
 		return userManager.listAllUsers();
