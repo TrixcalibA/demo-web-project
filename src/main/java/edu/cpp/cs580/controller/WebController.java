@@ -112,6 +112,17 @@ public class WebController {
 	}
 
 	/**
+	 * This API shows specific user's name. It uses HTTP GET method.
+	 * @param userId
+	 * @return user's name
+	 */
+	@RequestMapping(value = "/cs580/{userId}/name", method = RequestMethod.GET)
+	String showUserName(@PathVariable("userId") String userId) {
+		User user = userManager.getUser(userId);
+		return user.getName();
+	}
+	
+	/**
 	 * This API list specific user ID's major.
 	 *
 	 * @return
