@@ -2,6 +2,7 @@ package edu.cpp.cs580.controller;
 
 import java.util.List;
 
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,6 +68,20 @@ public class WebController {
 	User getUser(@PathVariable("userId") String userId) {
 		User user = userManager.getUser(userId);
 		return user;
+	}
+	
+	@RequestMapping(value = "/cs580/math_demo", method = RequestMethod.GET)
+	String math_demo() {
+		//Descriptive Statistics like MEAN,GP,SD,MAX
+		DescriptiveStatistics stats = new DescriptiveStatistics();
+		stats.addValue(1);
+		stats.addValue(2);
+		stats.addValue(3);
+		stats.addValue(4);
+		stats.addValue(5);
+		stats.addValue(6);
+		String test_stats = stats.toString();
+		return test_stats;
 	}
 
 	/**
